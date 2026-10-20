@@ -1,0 +1,54 @@
+name: build
+
+on:
+  push:
+    branches: ["**"]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Core tests (Bloodfeud + Ledger)
+        run: |
+          cmake --preset tests
+          cmake --build --preset tests -j
+          ctest --preset tests
+
+  mo2-archive:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Point vcpkg at the runner's copy
+        shell: pwsh
+        run: echo "VCPKG_ROOT=$env:VCPKG_INSTALLATION_ROOT" >> $env:GITHUB_ENV
+
+      - name: Configure
+        run: cmake --preset release
+
+      - name: Build both plugins
+        run: cmake --build --preset release
+
+      - name: Test
+        run: ctest --preset release
+
+      - name: Package for Mod Organizer 2
+        run: python tools/package_mo2.py
+
+      - name: Upload MO2 archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bloodfeud-and-Ledger-MO2
+          path: dist/MO2/
+
+      - name: Attach to release (tags only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Bloodfeud-and-Ledger-*.zip
