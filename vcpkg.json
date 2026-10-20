@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "bloodfeud-suite",
+  "version-string": "0.1.0",
+  "description": "Bloodfeud and Ledger SKSE plugins for Skyrim SE/AE.",
+  "dependencies": [
+    "spdlog",
+    "rapidcsv"
+  ]
+}

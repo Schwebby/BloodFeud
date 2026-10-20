@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+	<moduleName>Bloodfeud and Ledger</moduleName>
+	<installSteps order="Explicit">
+		<installStep name="Choose what to install">
+			<optionalFileGroups order="Explicit">
+				<group name="Mods (each works alone; together they react to each other)" type="SelectAtLeastOne">
+					<plugins order="Explicit">
+						<plugin name="Bloodfeud">
+							<description>Nemesis-style feuds and faction wars. Enemies get names, memories and grudges; some cheat death or send kin after you; eight factions fight over Skyrim's holds; wounded enemies can be interrogated. Menu: F7.</description>
+							<files>
+								<folder source="Bloodfeud" destination="" priority="0" />
+							</files>
+							<typeDescriptor>
+								<type name="Recommended" />
+							</typeDescriptor>
+						</plugin>
+						<plugin name="Ledger">
+							<description>A living economy. Every hold has its own market that reacts to dangerous roads, the civil war, dragons, seasons and your trading. Merchants' prices, gold and stock change accordingly, and you can invest in businesses for weekly dividends. Menu: F8.</description>
+							<files>
+								<folder source="Ledger" destination="" priority="0" />
+							</files>
+							<typeDescriptor>
+								<type name="Recommended" />
+							</typeDescriptor>
+						</plugin>
+					</plugins>
+				</group>
+			</optionalFileGroups>
+		</installStep>
+	</installSteps>
+</config>

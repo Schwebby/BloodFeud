@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fomod>
+	<Name>Bloodfeud and Ledger</Name>
+	<Author>Bloodfeud contributors</Author>
+	<Version MachineVersion="0.1.0">0.1.0</Version>
+	<Description>Bloodfeud: Nemesis-style feuds and faction wars. Ledger: a living economy that reacts to Skyrim's wars, dragons and outlaws, with investments. SKSE plugins, no ESP. Requires SKSE64 and Address Library for SKSE Plugins.</Description>
+	<Groups>
+		<element>Gameplay</element>
+		<element>Economy</element>
+	</Groups>
+</fomod>
