@@ -3,8 +3,7 @@
   "configurePresets": [
     {
       "name": "release",
-      "displayName": "Windows release (SKSE plugin)",
-      "generator": "Visual Studio 17 2022",
+      "displayName": "Windows release (SKSE plugin, newest installed Visual Studio)",
       "architecture": "x64",
       "binaryDir": "${sourceDir}/build",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
